@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2</title>
+</head>
+<body>
+    <h1>Declaração de imposto de renda</h1>
+    <h3><div id="imposto"></div></h3>
+
+    <script>
+            let nome = prompt("Digite o nome do contribuinte")
+            let cpf = prompt("Digite o CPF")
+            let renda = Number(prompt("Digite a renda anual"))
+            let depedentes = Number(prompt("Digite o numero de dependentes"))
+
+            let desconto = depedentes * 110;
+            let liquida = renda - desconto ;
+            let aliquota = 0
+            
+            if (liquida <= 900) {
+                aliquota = 0
+            }else if(liquida <= 5000){
+                aliquota = liquida * 0.05
+            }else if (liquida <= 10000){
+                aliquota = liquida * 0.1
+            }else{
+                aliquota = liquida * 0.15
+            }
+            document.getElementById("imposto").innerHTML += "Nome: " + nome + "</br>CPF: " + cpf + "</br>Renda: " + renda + "</br>Dependentes: " + depedentes +  "</br>alíquota: " + aliquota
+    </script>
+</body>
+</html>

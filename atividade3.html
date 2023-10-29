@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 3</title>
+</head>
+<body>
+    <h1>controle de qualidade</h1>
+    <h3>
+    <div id="dado"></div>
+    <hr>Numero das peças reprovadas:<p></p>
+    <div id="numero"></div>
+    </h3>
+
+    <script>
+        let pergunta1 =  Number(prompt("Quer adicionar um número de peça\n[ 0 ] - Sim \n[ 1 ] - Não"))
+        let total = 400
+        let reprovado = 0
+        let aprovada = 0
+
+        while (pergunta1 == 0 ) {
+            let numero = Number(prompt("Digite o número da peça"))
+            let pergunta2 = prompt("A peça foi aprovada ou reprovada?\n[ 0 ] - Aprovada \n[ 1 ] - Reprovada")
+            if (pergunta2 == 1) {
+                reprovado = reprovado + 1 
+            } else {
+                aprovada = aprovada + 1
+                numero = ""
+            }
+            
+            pergunta1 =  Number(prompt("Quer adicionar mais um número de peça\n[ 0 ] - Sim \n[ 1 ] - Não"))
+            
+            document.getElementById("numero").innerHTML += numero + "</br>"
+        }
+            document.getElementById("dado").innerHTML += "Total: " + total + "</br>Aprovados: " + aprovada + "</br>Reprovados: " + reprovado
+    </script>
+</body>
+</html>

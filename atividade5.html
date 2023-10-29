@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 5</title>
+</head>
+<body>
+    <h1>recrutamento</h1>
+    <h3>
+        <div id="dado"></div><hr>
+        <div id="cadastro"></div>
+    </h3>
+
+    <script>
+        let pergunta =  Number(prompt("Deseja cadastrar um candidato \n[ 0 ] - Sim \n[ 1 ] - Não"))
+        let numero = 0
+        let id = []
+        let num = []
+        let homem = 0
+        let mulher = 0
+        let soma = 0
+        let total = 0
+
+        while (pergunta == 0 ) {
+            numero = numero + 1 
+            let idade  = Number(prompt("Digite a idade do canditado"))
+            id.push(idade)
+            let sexo = prompt("Qual é seu sexo?\n[ 0 ] - masculino \n[ 1 ] - femininno")
+            
+            switch (sexo) {
+                case "0":
+                    sexo = "Masculino"
+                    homem = homem + 1
+                    break;
+                case "1":
+                    sexo = "Femininno"
+                    mulher = mulher + 1
+                    break;
+                default:
+                    sexo = "Erro"
+                    break;
+            }
+            let experiencia  = prompt("O candidato tem experiência profissional?\n[ 0 ] - Sim \n[ 1 ] - Não")
+
+            if (experiencia == 0) {
+                experiencia = "Sim"
+            }else{
+                experiencia = "Não"
+            }
+
+            if (experiencia == "Sim" && idade > 17) {
+            num.push(numero)
+        }
+
+            pergunta =  Number(prompt("Deseja cadastrar mais um candidato \n[ 0 ] - Sim \n[ 1 ] - Não"))
+
+            document.getElementById("cadastro").innerHTML += "número do candidato: " + numero + "</br>Idade: " + idade + "</br>Sexo: " + sexo + "</br>Experiência profissional: " + experiencia + "<hr>"
+        }
+        total = homem + mulher
+
+        for (let i = 0; i < id.length; i++) {
+        soma += id[i];
+        }
+        media = soma / id.length
+
+        document.getElementById("dado").innerHTML =  "Idade média dos candidatos: " + media.toFixed(0) + "</br>Número total de candidatos e candidatas: " + total + "</br>Número de candidatos: " + homem + "</br>Número de candidatas: " + mulher + "</br>Numero dos candidatos maiores de idade e com experiência no serviço: " + num 
+    </script>
+</body>
+</html>

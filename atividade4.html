@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 4</title>
+</head>
+<body>
+    <h1>Avaliação de um alunos</h1>
+    <h3>
+        <div id="dado"></div>
+        <div id="cadastro"></div>
+    </h3>
+
+    <script>
+        let mediaTurma = []
+        let soma = 0
+        let mediaMin
+        let mediaMax
+        let aprovado = 0
+        let reprovado = 0
+
+        for (let aluno = 0; aluno < 70; aluno++) {
+            let matricula  =  Number(prompt("Digite o número de matricula"))
+            let n1  =  Number(prompt("Digite a primeira nota"))
+            let n2  =  Number(prompt("Digite a segunda nota"))
+            let n3  =  Number(prompt("Digite a terceira nota"))
+            let numFrequencia  =  Number(prompt("Digite o número de aulas frequentadas"))
+            
+            let media = (n1 + n2 + n3) / 3
+            let resultado;
+            mediaTurma.push(media)
+
+            if (numFrequencia > 24 && media >= 7) {
+                resultado = "Aprovado"
+                aprovado = aprovado + 1
+            } else {
+                resultado = "Reprovado"
+                reprovado = reprovado + 1
+            } 
+            document.getElementById("cadastro").innerHTML += "<hr>Números da matrícula: " + matricula + "</br>primeira nota: " + n1 + "</br>segunda nota: " + n2 + "</br>terceira nota: " + n3 + "</br>Numero de aulas frequentadas: " + numFrequencia + "</br>Média final: " + media.toFixed(0) + "</br>Resultado: " + resultado
+            
+            mediaMin = Math.min(... mediaTurma)
+            mediaMax = Math.max(... mediaTurma)
+        }
+
+        for (let i = 0; i < mediaTurma.length; i++) {
+        soma += mediaTurma[i];
+        }
+        mediaTotal = soma / mediaTurma.length
+
+        document.getElementById("dado").innerHTML += "Média da turma: " + mediaTotal.toFixed(0) + "</br>Maior media: " + mediaMax + "</br>Nemor media: " + mediaMin + "</br>Total de alunos aprovados: " + aprovado + "</br>Total de alunos reprovados: " + reprovado
+    </script>
+</body>
+</html>
